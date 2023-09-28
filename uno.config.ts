@@ -1,0 +1,78 @@
+import { defineConfig, presetIcons, presetUno, presetWebFonts } from "unocss"
+
+export default defineConfig({
+  presets: [
+    presetUno(),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+    }),
+    presetWebFonts({
+      fonts: {
+        sans: "Roboto",
+        serif: "DM Serif Display",
+        mono: "DM Mono",
+      },
+    }),
+  ],
+  theme: {
+    colors: {
+      primary: {
+        "50": "#ebffff",
+        "100": "#ccfcff",
+        "200": "#a0f7ff",
+        "300": "#5ef0ff",
+        "400": "#16ddfa",
+        "500": "#00c0e0",
+        "600": "#0098bc",
+        "700": "#067898",
+        "800": "#0f617b",
+        "900": "#115068",
+        "950": "#053b50",
+        DEFAULT: "#053b50",
+      },
+      secondary: {
+        "50": "#f2fbfa",
+        "100": "#d4f3ef",
+        "200": "#a9e6df",
+        "300": "#64ccc5",
+        "400": "#4ab7b4",
+        "500": "#309c9a",
+        "600": "#247d7d",
+        "700": "#216364",
+        "800": "#1e5051",
+        "900": "#1d4344",
+        "950": "#0b2628",
+        DEFAULT: "#64ccc5",
+      },
+      alternate: {
+        "50": "#edfcfe",
+        "100": "#d2f6fb",
+        "200": "#abebf6",
+        "300": "#71dcef",
+        "400": "#30c3e0",
+        "500": "#14a6c6",
+        "600": "#1485a6",
+        "700": "#176b87",
+        "800": "#1c586e",
+        "900": "#1b4a5e",
+        "950": "#0c2f40",
+        DEFAULT: "#176b87",
+      },
+      light: {
+        "50": "#f8f8f8",
+        "100": "#eeeeee",
+        "200": "#dcdcdc",
+        "300": "#bdbdbd",
+        "400": "#989898",
+        "500": "#7c7c7c",
+        "600": "#656565",
+        "700": "#525252",
+        "800": "#464646",
+        "900": "#3d3d3d",
+        "950": "#292929",
+        DEFAULT: "#eeeeee",
+      },
+    },
+  },
+})
