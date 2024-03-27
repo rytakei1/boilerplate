@@ -1,13 +1,6 @@
 import { defineStore } from "pinia"
 import { useAuthStore } from "./authStore"
-
-interface IUser {
-  email: string
-  first_name: string
-  last_name: string
-  id: number
-  is_superuser: boolean
-}
+import { IUser, IUserCreate } from "~/types/user"
 
 interface IUsersListResponse {
   count: number
@@ -33,6 +26,22 @@ export const useUsersStore = defineStore("users", {
         return false
       }
       this.users = data.value.results
+    },
+    async createUser(user: IUserCreate) {
+      const authStore = useAuthStore()
+      const { data, error } = await useFetch(
+        () => `http://localhost:8000/users/`,
+        {
+          method: "POST",
+          headers: { Authorization: `Token ${authStore.token}` },
+          body: user,
+        }
+      )
+      if (error.value || !data.value) {
+        console.error("Error creating user")
+        return { status: "error", message: error.value }
+      }
+      return { status: "success", message: "User created successfully" }
     },
   },
 })

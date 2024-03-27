@@ -1,8 +1,7 @@
 <template>
   <div class="flex min-h-full">
     <div
-      class="flex flex-col h-full min-w-40 relative max-h-full overflow-hidden bg-light"
-    >
+      class="flex flex-col h-full min-w-40 relative max-h-full overflow-hidden bg-light">
       <div
         ref="topBox"
         class="border-r-2 border-b-2 rounded-br border-primary absolute top-0 left-0 w-full pointer-events-none bg-light"
@@ -10,8 +9,7 @@
         :class="{
           'duration-0': !initialRender,
           'duration-300 transition-all': initialRender,
-        }"
-      ></div>
+        }" />
       <div
         ref="bottomBox"
         class="border-r-2 border-t-2 rounded-tr border-primary absolute left-0 w-full h-full pointer-events-none bg-light"
@@ -25,8 +23,7 @@
               ? selectedEntryRef.offsetTop + selectedEntryRef.clientHeight
               : 0
           }px`,
-        }"
-      ></div>
+        }" />
       <div class="flex px-2 justify-center z-1">
         <h2 class="uppercase text-primary py-8 font-bold text-2xl">Encora</h2>
       </div>
@@ -38,15 +35,13 @@
           :class="{
             selected: route.path.includes(entry.path),
             'bg-transparent': route.path.includes(entry.path),
-          }"
-        >
+          }">
           <router-link
             :to="entry.path"
             class="flex flex-col justify-center items-center w-full h-full py-6 text-primary transition-all duration-300"
             :class="{
               'text-primary': route.path.includes(entry.path),
-            }"
-          >
+            }">
             <component :is="entry.icon" />
             {{ entry.label }}
           </router-link>

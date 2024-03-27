@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { useAuthStore } from "~/stores/authStore"
 import { useToast } from "vue-toastification"
-import { promiseTimeout, useTimeout } from "@vueuse/core"
+import { promiseTimeout } from "@vueuse/core"
 const username = ref("")
 const password = ref("")
 const authStore = useAuthStore()
@@ -46,7 +46,6 @@ const leaving = ref(false)
 const toast = useToast()
 const router = useRouter()
 const handleLogin = async () => {
-  console.log("log")
   loading.value = true
   const success = await authStore.login(username.value, password.value)
   loading.value = false

@@ -118,13 +118,13 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue"
+import type { FunctionalComponent } from "vue"
+// @ts-ignore
 import { Tooltip } from "@programic/vue3-tooltip"
 import ArrowUp from "~icons/mdi/arrow-up"
 import ArrowDown from "~icons/mdi/arrow-down"
 import IconSearch from "~icons/material-symbols/search"
 import axios from "axios"
-import { FunctionalComponent } from "nuxt/dist/app/compat/capi"
 interface ITableColumn {
   name: string
   label: string
@@ -232,8 +232,8 @@ const handleExport = async () => {
           ? column.exportFormat
             ? column.exportFormat(entry[column.name])
             : column.format
-            ? column.format(entry[column.name])
-            : entry[column.name]
+              ? column.format(entry[column.name])
+              : entry[column.name]
           : null
       )
     }

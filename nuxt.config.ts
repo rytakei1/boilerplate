@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/eslint-module",
+    "@nuxt/eslint",
     "@nuxt/devtools",
     "@unocss/nuxt",
     "@pinia/nuxt",
@@ -15,4 +15,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  eslint: {
+    checker: false,
+  },
 })
